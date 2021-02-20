@@ -5,7 +5,7 @@ local killothers = Instance.new("TextButton")
 local killall = Instance.new("TextButton")
 --228573408
 --Properties
-AdolfJackson.Name = "AdolfJacksonCBRO"
+AdolfJackson.Name = "AdolfJackson"
 AdolfJackson.Parent = game:GetService("CoreGui")
 AdolfJackson.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 AdolfJackson.DisplayOrder = 1000000
