@@ -8,7 +8,7 @@ local killpalyertext = Instance.new("TextButton")
 --257061226
 --Properties
 AdolfJackson.Name = "AdolfJackson"
-AdolfJackson.Parent = game:GetService("Players").LocalPlayer.PlayerGui --game:GetService("CoreGui")
+AdolfJackson.Parent = game:GetService("CoreGui")
 AdolfJackson.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 AdolfJackson.DisplayOrder = 1000000
 
