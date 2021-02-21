@@ -1,4 +1,4 @@
-if game.GameId == 257061226 or game.GameId == 115797356 or game.GameId == 228573408 or game.GameId == 2265345016 then
+if game.GameId == 257061226 or game.GameId == 115797356 or game.GameId == 228573408 or game.GameId == 2265345016 or game.GameId == 1071153038 then
 if game.GameId == 228573408 then
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/necobuba/adolfhub/main/superhero.lua'),true))()
 end
@@ -10,6 +10,9 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/necobuba/adolfhub/ma
 end
 if game.GameId == 2265345016 then
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/necobuba/adolfhub/main/fortnite.lua'),true))()
+end
+if game.GameId == 1071153038 then
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/necobuba/adolfhub/main/brawlst.lua'),true))()
 end
 else
 print("NOT FOUND")
