@@ -5,6 +5,7 @@ local killothers = Instance.new("TextButton")
 local killall = Instance.new("TextButton")
 local playertext = Instance.new("TextBox")
 local killpalyertext = Instance.new("TextButton")
+local silah = game.Players.LocalPlayer.Backpack.CommonPistol or game.Players.LocalPlayer.Character.CommonPistol
 --257061226
 --Properties
 AdolfJackson.Name = "AdolfJackson"
@@ -120,7 +121,7 @@ killothers.MouseButton1Click:Connect(function()
 	for i,v in pairs(game.Players:GetPlayers()) do 
 		if v.Character and v ~= game.Players.LocalPlayer then
 			local adam = v.Character
-      game.Players.LocalPlayer.Backpack.CommonPistol["GunScript_Server"].InflictTarget:FireServer(adam.Humanoid, adam.Head, 100, Vector3.new(-0.466185123, -0.030247394, -0.884169936), 0, 0, false)
+      silah["GunScript_Server"].InflictTarget:FireServer(adam.Humanoid, adam.Head, 100, Vector3.new(-0.466185123, -0.030247394, -0.884169936), 0, 0, false)
 		end
 	end
 end)
@@ -128,11 +129,11 @@ end)
 killall.MouseButton1Click:Connect(function()
 	for i,v in pairs(game.Players:GetPlayers()) do 
 		local adam = v.Character
-  	game.Players.LocalPlayer.Backpack.CommonPistol["GunScript_Server"].InflictTarget:FireServer(adam.Humanoid, adam.Head, 100, Vector3.new(-0.466185123, -0.030247394, -0.884169936), 0, 0, false)
+  	silah["GunScript_Server"].InflictTarget:FireServer(adam.Humanoid, adam.Head, 100, Vector3.new(-0.466185123, -0.030247394, -0.884169936), 0, 0, false)
 	end
 end)
 
 killpalyertext.MouseButton1Click:Connect(function()
 	local adam = game:GetService("Players")[playertext.Text].Character
-  game.Players.LocalPlayer.Backpack.CommonPistol["GunScript_Server"].InflictTarget:FireServer(adam.Humanoid, adam.Head, 100, Vector3.new(-0.466185123, -0.030247394, -0.884169936), 0, 0, false)
+  silah["GunScript_Server"].InflictTarget:FireServer(adam.Humanoid, adam.Head, 100, Vector3.new(-0.466185123, -0.030247394, -0.884169936), 0, 0, false)
 end)
