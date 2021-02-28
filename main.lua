@@ -6,7 +6,7 @@ if game.GameId == 115797356 then
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/necobuba/adolfhub/main/cbro.lua'),true))()
 end
 if game.GameId == 257061226 then
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/necobuba/adolfhub/main/site17.lua'),true))()
+print("NOT FOUND") --loadstring(game:HttpGet(('https://raw.githubusercontent.com/necobuba/adolfhub/main/site17.lua'),true))()
 end
 if game.GameId == 2265345016 then
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/necobuba/adolfhub/main/fortnite.lua'),true))()
