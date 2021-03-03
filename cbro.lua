@@ -14,7 +14,7 @@ local raycast = false
 local espupdatetime = 5; autoesp = false
 --Properties
 AdolfJacksonCBRO.Name = "AdolfJacksonCBRO"
-AdolfJacksonCBRO.Parent = game:GetService("Players").LocalPlayer.PlayerGui --game:GetService("CoreGui")
+AdolfJacksonCBRO.Parent = game:GetService("CoreGui")
 AdolfJacksonCBRO.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 AdolfJacksonCBRO.DisplayOrder = 1000000
 
