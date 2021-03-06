@@ -5,6 +5,9 @@ local killothers = Instance.new("TextButton")
 local killall = Instance.new("TextButton")
 local playertext = Instance.new("TextBox")
 local killpalyertext = Instance.new("TextButton")
+local enterid = Instance.new("TextBox")
+local entervictim = Instance.new("TextBox")
+local addaudio = Instance.new("TextButton")
 --1167440934
 --Properties
 AdolfJackson.Name = "AdolfJackson"
@@ -69,6 +72,46 @@ killpalyertext.Text = "Kill Player"
 killpalyertext.TextColor3 = Color3.new(1, 1, 1)
 killpalyertext.TextSize = 14
 
+enterid.Name = "idtxt"
+enterid.Parent = main
+enterid.BackgroundColor3 = Color3.new(1, 0.666667, 0.133333)
+enterid.BorderSizePixel = 0
+enterid.Position = UDim2.new(0.529, 0, 0.471, 0)
+enterid.Size = UDim2.new(0.419, 0, 0.139, 0)
+enterid.TextScaled = true
+enterid.Font = Enum.Font.SourceSans
+enterid.PlaceholderColor3 = Color3.new(0.8, 0.8, 0.8)
+enterid.PlaceholderText = "Enter Audio ID"
+enterid.Text = ""
+enterid.TextColor3 = Color3.new(1, 1, 1)
+enterid.TextSize = 14
+
+entervictim.Name = "victimtxt"
+entervictim.Parent = main
+entervictim.BackgroundColor3 = Color3.new(1, 0.666667, 0.133333)
+entervictim.BorderSizePixel = 0
+entervictim.Position = UDim2.new(0.047, 0, 0.471, 0)
+entervictim.Size = UDim2.new(0.419, 0, 0.139, 0)
+entervictim.TextScaled = true
+entervictim.Font = Enum.Font.SourceSans
+entervictim.PlaceholderColor3 = Color3.new(0.8, 0.8, 0.8)
+entervictim.PlaceholderText = "Enter Victim Nick"
+entervictim.Text = ""
+entervictim.TextColor3 = Color3.new(1, 1, 1)
+entervictim.TextSize = 14
+
+addaudio.Name = "addaudia"
+addaudio.Parent = main
+addaudio.BackgroundColor3 = Color3.new(1, 0.666667, 0.133333)
+addaudio.BorderSizePixel = 0
+addaudio.Position = UDim2.new(0.049, 0, 0.679, 0)
+addaudio.Size = UDim2.new(0.899, 0, 0.139, 0)
+addaudio.TextScaled = true
+addaudio.Font = Enum.Font.SourceSans
+addaudio.Text = "Add Audio"
+addaudio.TextColor3 = Color3.new(1, 1, 1)
+addaudio.TextSize = 14
+
 --Functions
 game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
 	if key == 'k' then
@@ -120,7 +163,7 @@ killothers.MouseButton1Click:Connect(function()
 	for i,v in pairs(game.Players:GetPlayers()) do 
 		if v.Character and v ~= game.Players.LocalPlayer then
 			local adam = v.Character
-      game:GetService("ReplicatedStorage").ChatSystemGetMessage:InvokeServer("hit", "}, {  ", 100, adam.Humanoid, adam.HumanoidRootPart, 1, Vector3.new(0.91149193, 0.0513407998, -0.408101141), 17.24479675293)
+			game:GetService("ReplicatedStorage").ChatSystemGetMessage:InvokeServer("hit", "}, {  ", 100, adam.Humanoid, adam.HumanoidRootPart, 1, Vector3.new(0.91149193, 0.0513407998, -0.408101141), 17.24479675293)
 		end
 	end
 end)
@@ -128,11 +171,24 @@ end)
 killall.MouseButton1Click:Connect(function()
 	for i,v in pairs(game.Players:GetPlayers()) do 
 		local adam = v.Character
-  	game:GetService("ReplicatedStorage").ChatSystemGetMessage:InvokeServer("hit", "}, {  ", 100, adam.Humanoid, adam.HumanoidRootPart, 1, Vector3.new(0.91149193, 0.0513407998, -0.408101141), 17.24479675293)
+		game:GetService("ReplicatedStorage").ChatSystemGetMessage:InvokeServer("hit", "}, {  ", 100, adam.Humanoid, adam.HumanoidRootPart, 1, Vector3.new(0.91149193, 0.0513407998, -0.408101141), 17.24479675293)
 	end
 end)
 
 killpalyertext.MouseButton1Click:Connect(function()
 	local adam = game:GetService("Players")[playertext.Text].Character
-  game:GetService("ReplicatedStorage").ChatSystemGetMessage:InvokeServer("hit", "}, {  ", 100, adam.Humanoid, adam.HumanoidRootPart, 1, Vector3.new(0.91149193, 0.0513407998, -0.408101141), 17.24479675293)
+	game:GetService("ReplicatedStorage").ChatSystemGetMessage:InvokeServer("hit", "}, {  ", 100, adam.Humanoid, adam.HumanoidRootPart, 1, Vector3.new(0.91149193, 0.0513407998, -0.408101141), 17.24479675293)
+end)
+
+addaudio.MouseButton1Click:Connect(function()
+	local id = enterid.Text
+	local hedef = entervictim.Text
+	local audio = {
+		["Volume"] = 1,
+		["SoundId"] = "rbxassetid://"..id,
+		["Replicate"] = true,
+		["Position"] = workspace[hedef].Head,
+		["Effects"] = true,
+	}
+	game:GetService("ReplicatedStorage").ChatSystemMakeMessage:FireServer("}11, { \n\n } ", "}, { ", audio)
 end)
