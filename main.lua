@@ -1,4 +1,4 @@
-if game.GameId == 257061226 or game.GameId == 115797356 or game.GameId == 228573408 or game.GameId == 2265345016 or game.GameId == 1071153038 or game.PlaceId == 2384168338 or game.GameId == 1167440934 or game.GameId == 1681236391 then
+if game.GameId == 257061226 or game.GameId == 115797356 or game.GameId == 228573408 or game.GameId == 2265345016 or game.GameId == 1071153038 or game.PlaceId == 2384168338 or game.GameId == 1167440934 or game.GameId == 1681236391 or game.GameId == 66654135 then
 if game.GameId == 228573408 then
 loadstring(game:HttpGet('https://raw.githubusercontent.com/necobuba/adolfhub/main/superhero.lua'))()
 end
@@ -23,7 +23,9 @@ end
 if game.GameId == 1681236391 then
 loadstring(game:HttpGet('https://raw.githubusercontent.com/necobuba/adolfhub/main/betefe.lua'))()
 end
+if game.GameId == 66654135 then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/necobuba/adolfhub/main/mm2.lua'))()
+end
 else
 print("NOT FOUND")
 end
---1681236391
