@@ -379,3 +379,4 @@ ncuscript.Parent.MouseButton1Down:connect(function()
 		ncuscript.Parent.BackgroundColor3 = Color3.new(0.239216, 0.239216, 0.239216)
 	end
 end)
+--hug
