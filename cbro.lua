@@ -57,7 +57,7 @@ fpsui.Position = UDim2.new(0.049, 0, 0.411, 0)
 fpsui.Size = UDim2.new(0.882, 0, 0.139, 0)
 fpsui.TextScaled = true
 fpsui.Font = Enum.Font.SourceSans
-fpsui.Text = "FPS GUI V1.0"
+fpsui.Text = "(HEAD FUCKER) ESP AND KİLL"
 fpsui.TextColor3 = Color3.new(1, 1, 1)
 fpsui.TextSize = 14
 
@@ -131,416 +131,165 @@ killall.MouseButton1Click:Connect(function()
 end)
 
 fpsui.MouseButton1Click:Connect(function()
-	local lockaim = true; local lockangle = 5
+		PLAYER  = game.Players.LocalPlayer
+MOUSE   = PLAYER:GetMouse()
+CC      = game.Workspace.CurrentCamera
 
-
-
-	--function findwat(folder, what)
-	--	for i, smth in pairs(folder:GetChildren()) do
-	--		if string.find(string.lower(tostring(smth)), string.lower(what)) then
-	--			return smth
-	--		end
-	--	end
-	--end
-	--
-	--local plrs = findwat(game, "Players")
+_G.AIM_AT = 'Head'
+_G.BIND   = 101 -- E
 
 
 
 
-	local Gui = Instance.new("ScreenGui")
-	local Move = Instance.new("Frame")
-	local Main = Instance.new("Frame")
-	local EspStatus = Instance.new("TextLabel")
-	local st1 = Instance.new("TextLabel")
-	local st1_2 = Instance.new("TextLabel")
-	local st1_3 = Instance.new("TextLabel")
-	local Name = Instance.new("TextLabel")
-	--Properties:
-	Gui.Name = "Gui"
-	Gui.Parent = plrs.LocalPlayer:WaitForChild("PlayerGui")
+PLR = game.Players.LocalPlayer
+MOUSE  = PLR:GetMouse()
 
-	Move.Name = "Move"
-	Move.Parent = Gui
-	Move.BackgroundColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	Move.BackgroundTransparency = 0.40000000596046
-	Move.BorderSizePixel = 0
-	Move.Position = UDim2.new(0.005, 0,0.018, 0)
-	Move.Size = UDim2.new(0.28141585, 0, 0.0320388414, 0)
+function CREATE(BASE, TEAM)
+    local ESP_MAIN                   = Instance.new('BillboardGui', PLR.PlayerGui)
+    local ESP_DOT                    = Instance.new('Frame', ESP_MAIN)
+    local ESP_NAME                   = Instance.new('TextLabel', ESP_MAIN)
+    
+    ESP_MAIN.Name                    = 'ESP'
+    ESP_MAIN.Adornee                 = BASE
+    ESP_MAIN.AlwaysOnTop             = true
+    ESP_MAIN.ExtentsOffset           = Vector3.new(0, 1, 0)
+    ESP_MAIN.Size                    = UDim2.new(0, 5, 0, 5)
+    
+    ESP_DOT.Name                     = 'DOT'
+    ESP_DOT.BackgroundColor          = BrickColor.new('Institutional white')
+    ESP_DOT.BackgroundTransparency   = 0.3
+    ESP_DOT.BorderSizePixel          = 0
+    ESP_DOT.Position                 = UDim2.new(-0.5, 0, -0.5, 0)
+    ESP_DOT.Size                     = UDim2.new(2, 0, 2, 0)
+    ESP_DOT.Visible                  = true
+    ESP_DOT.ZIndex                   = 10
+    
+    ESP_NAME.Name                    = 'NAME'
+    ESP_NAME.BackgroundColor3        = Color3.new(255, 255, 255)
+    ESP_NAME.BackgroundTransparency  = 1
+    ESP_NAME.BorderSizePixel         = 0
+    ESP_NAME.Position                = UDim2.new(0, 0, 0, -40)
+    ESP_NAME.Size                    = UDim2.new(1, 0, 10, 0)
+    ESP_NAME.Visible                 = true
+    ESP_NAME.ZIndex                  = 10
+    ESP_NAME.Font                    = 'SciFi'
+    ESP_NAME.FontSize                = 'Size14'
+    ESP_NAME.Text                    = BASE.Parent.Name:upper()
+    ESP_NAME.TextColor               = BrickColor.new('Institutional white')
+end
 
-	Main.Name = "Main"
-	Main.Parent = Move
-	Main.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.176471)
-	Main.BackgroundTransparency = 0.69999998807907
-	Main.Position = UDim2.new(0, 0, 0.995670795, 0)
-	Main.Size = UDim2.new(1.0000006, 0, 9.79697132, 0)
+function CLEAR()
+    for _,v in pairs(PLR.PlayerGui:children()) do
+        if v.Name == 'ESP' and v:IsA('BillboardGui') then
+            v:Destroy()
+        end
+    end
+end
 
-	EspStatus.Name = "EspStatus"
-	EspStatus.Parent = Main
-	EspStatus.BackgroundColor3 = Color3.new(1, 1, 1)
-	EspStatus.BackgroundTransparency = 1
-	EspStatus.Size = UDim2.new(0.272955924, 0, 0.161862016, 0)
-	EspStatus.Font = Enum.Font.ArialBold
-	EspStatus.Text = "Press T to update Esp"
-	EspStatus.TextColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	EspStatus.TextScaled = true
-	EspStatus.TextSize = 14
-	EspStatus.TextWrapped = true
+function FIND()
+    CLEAR()
+    spawn(function()
+        while wait(0.01) do
+                CLEAR()
+                for i,v in pairs(game.Players:GetChildren()) do
+                    if v.Character and v.Character:FindFirstChild('Head') then
+                            if v.Team == PLR.Team then
+                                   else
+                                if v.Character:FindFirstChild('Head') then
+                                CREATE(v.Character.Head, true)
+                            end
+                        end
+                    end
+                end
+            end        
+        wait(1)
+    end)
+end
 
-	st1.Name = "st1"
-	st1.Parent = Main
-	st1.BackgroundColor3 = Color3.new(1, 1, 1)
-	st1.BackgroundTransparency = 1
-	st1.Position = UDim2.new(0.271787882, 0, 0, 0)
-	st1.Size = UDim2.new(0.728211343, 0, 0.161862016, 0)
-	st1.Font = Enum.Font.ArialBold
-	st1.Text = "Press "..aimkey.." to lock on a person inside ur view"
-	st1.TextColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	st1.TextScaled = true
-	st1.TextSize = 14
-	st1.TextWrapped = true
+function GetNearestPlayerToMouse()
+    local PLAYERS      = {}
+    local PLAYER_HOLD  = {}
+    local DISTANCES    = {25000}
+    for i, v in pairs(game.Players:GetPlayers()) do
+        if v ~= PLAYER then
+            table.insert(PLAYERS, v)
+        end
+    end
+    for i, v in pairs(PLAYERS) do
+            if v and (v.Character) ~= nil and v.Team ~= PLAYER.Team then
+                local AIM = v.Character:FindFirstChild(_G.AIM_AT)
+                if AIM ~= nil then
+                    local DISTANCE                 = (AIM.Position - game.Workspace.CurrentCamera.CoordinateFrame.p).magnitude
+                    local RAY                      = Ray.new(game.Workspace.CurrentCamera.CoordinateFrame.p, (MOUSE.Hit.p - CC.CoordinateFrame.p).unit * DISTANCE)
+                    local HIT,POS                  = game.Workspace:FindPartOnRay(RAY, game.Workspace)
+                    local DIFF                     = math.floor((POS - AIM.Position).magnitude)
+                    PLAYER_HOLD[v.Name .. i]       = {}
+                    PLAYER_HOLD[v.Name .. i].dist  = DISTANCE
+                    PLAYER_HOLD[v.Name .. i].plr   = v
+                    PLAYER_HOLD[v.Name .. i].diff  = DIFF
+                    table.insert(DISTANCES, DIFF)
+                end
+            end
+        end
+    
+    if unpack(DISTANCES) == nil then
+        return false
+    end
+    
+    local L_DISTANCE = math.floor(math.min(unpack(DISTANCES)))
+    if L_DISTANCE > 25000 then
+        return false
+    end
+    
+    for i, v in pairs(PLAYER_HOLD) do
+        if v.diff == L_DISTANCE then
+            return v.plr
+        end
+    end
+    return false
+end
 
-	st1_2.Name = "st1"
-	st1_2.Parent = Main
-	st1_2.BackgroundColor3 = Color3.new(1, 1, 1)
-	st1_2.BackgroundTransparency = 1
-	st1_2.Position = UDim2.new(0, 0, 0.375590861, 0)
-	st1_2.Size = UDim2.new(0.999999881, 0, 0.161862016, 0)
-	st1_2.Font = Enum.Font.ArialBold
-	st1_2.Text = "Press L to enable esp loop"
-	st1_2.TextColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	st1_2.TextScaled = true
-	st1_2.TextSize = 14
-	st1_2.TextWrapped = true
+MOUSE.KeyDown:connect(function(KEY)
+    KEY = KEY:lower():byte()
+    if KEY == _G.BIND then
+        ENABLED = true
+    end
+end)
 
-	st1_3.Name = "st1"
-	st1_3.Parent = Main
-	st1_3.BackgroundColor3 = Color3.new(1, 1, 1)
-	st1_3.BackgroundTransparency = 1
-	st1_3.Position = UDim2.new(0, 0, 0.18558608, 0)
-	st1_3.Size = UDim2.new(0.999999881, 0, 0.161862016, 0)
-	st1_3.Font = Enum.Font.ArialBold
-	st1_3.Text = "Press O to change team based mode"
-	st1_3.TextColor3 = Color3.new(0.0431373, 1, 0.0745098)
-	st1_3.TextScaled = true
-	st1_3.TextSize = 14
-	st1_3.TextWrapped = true
-	local teambasedstatus = st1_3:Clone()
-	teambasedstatus.Parent = st1_3
-	teambasedstatus.TextScaled = true
-	teambasedstatus.Position = UDim2.new(0, 0,0.694, 0)
-	teambasedstatus.Text = tostring(TeamBased)
+MOUSE.KeyUp:connect(function(KEY)
+    KEY = KEY:lower():byte()
+    if KEY == _G.BIND then
+        ENABLED = false
+    end
+end)
 
-	Name.Name = "Name"
-	Name.Parent = Move
-	Name.BackgroundColor3 = Color3.new(1, 1, 1)
-	Name.BackgroundTransparency = 1
-	Name.Size = UDim2.new(0.838, 0, 0.980000019, 0)
-	Name.Font = Enum.Font.Arial
-	Name.Text = "FPS gui v1.0"
-	Name.TextColor3 = Color3.new(0, 0, 0)
-	Name.TextScaled = true
-	Name.TextSize = 14
-	Name.TextWrapped = true
-	Name.TextXAlignment = Enum.TextXAlignment.Left
-	-- Scripts:
-
-
-	local plrsforaim = {}
-
-	local lplr = game:GetService("Players").LocalPlayer
-	Move.Draggable = true
-	Gui.ResetOnSpawn = false
-	Gui.Name = "Chat"
-	Gui.DisplayOrder = 999
-
-	Gui.Parent = plrs.LocalPlayer.PlayerGui
-
-
-	f = {}
-	local espforlder
-
-	f.addesp = function()
-		--print("ESP ran")
-		if espforlder then
-		else
-			espforlder = Instance.new("Folder")
-			espforlder.Parent = game.Workspace.CurrentCamera
-		end
-		for i, v in pairs(espforlder:GetChildren()) do
-			v:Destroy()
-		end
-		for _, plr in pairs(plrs:GetChildren()) do
-			if plr.Character and plr.Character.Humanoid.Health > 0 and plr.Name ~= lplr.Name then
-				if TeamBased == true then
-					if plr.Team.Name ~= plrs.LocalPlayer.Team.Name  then
-						local e = espforlder:FindFirstChild(plr.Name)
-						if not e then
-							--print("Added esp for team based")
-							local bill = Instance.new("BillboardGui", espforlder)
-							bill.Name = plr.Name
-							bill.AlwaysOnTop = true
-							bill.Size = UDim2.new(1,0,1,0)
-							bill.Adornee = plr.Character.Head
-							local Frame = Instance.new('Frame',bill)
-							Frame.Active = true
-							Frame.BackgroundColor3 = Color3.new(0/255,255/255,0/255)
-							Frame.BackgroundTransparency = 0
-							Frame.BorderSizePixel = 0
-							Frame.AnchorPoint = Vector2.new(.5, .5)
-							Frame.Position = UDim2.new (0.5,0,0.5,0)
-							Frame.Size = UDim2.new (1,0,1,0)
-							Frame.Rotation = 0
-							plr.Character.Humanoid.Died:Connect(function()
-								bill:Destroy()
-							end)
-						end
-					end
-				else
-					local e = espforlder:FindFirstChild(plr.Name)
-					if not e then
-						--print("Added esp")
-						local bill = Instance.new("BillboardGui", espforlder)
-						bill.Name = plr.Name
-						bill.AlwaysOnTop = true
-						bill.Size = UDim2.new(1,0,1,0)
-						bill.Adornee = plr.Character.Head
-						local Frame = Instance.new('Frame',bill)
-						Frame.Active = true
-						Frame.BackgroundColor3 = Color3.new(0/255,255/255,0/255)
-						Frame.BackgroundTransparency = 0
-						Frame.BorderSizePixel = 0
-						Frame.AnchorPoint = Vector2.new(.5, .5)
-						Frame.Position = UDim2.new (0.5,0,0.5,0)
-						Frame.Size = UDim2.new (1,0,1,0)
-						Frame.Rotation = 0
-						plr.Character.Humanoid.Died:Connect(function()
-							bill:Destroy()
-						end)
-					end
-				end
-
-
-			end
-		end
-	end
-	local cam = game.Workspace.CurrentCamera
-
-	local mouse = lplr:GetMouse()
-	local switch = false
-	local key = "k"
-	local aimatpart = nil
-	mouse.KeyDown:Connect(function(a)
-		if a == "t" then
-			print("worked1")
-			f.addesp()
-		elseif a == "u" then
-			if raycast == true then
-				raycast = false
-			else
-				raycast = true
-			end
-		elseif a == "l" then
-			if autoesp == false then
-				autoesp = true
-			else
-				autoesp = false
-			end
-		end
-		if a == "j" then
-			if mouse.Target then
-				mouse.Target:Destroy()
-			end
-		end
-		if a == key then
-			if switch == false then
-				switch = true
-			else
-				switch = false
-				if aimatpart ~= nil then
-					aimatpart = nil
-				end
-			end
-		elseif a == teambasedswitch then
-			if TeamBased == true then
-				TeamBased = false
-				teambasedstatus.Text = tostring(TeamBased)
-			else
-				TeamBased = true
-				teambasedstatus.Text = tostring(TeamBased)
-			end
-		elseif a == aimkey then
-			if not aimatpart then
-				local maxangle = math.rad(20)
-				for i, plr in pairs(plrs:GetChildren()) do
-					if plr.Name ~= lplr.Name and plr.Character and plr.Character.Head and plr.Character.Humanoid and plr.Character.Humanoid.Health > 1 then
-						if TeamBased == true then
-							if plr.Team.Name ~= lplr.Team.Name then
-								local an = checkfov(plr.Character.Head)
-								if an < maxangle then
-									maxangle = an
-									aimatpart = plr.Character.Head
-								end
-							end
-						else
-							local an = checkfov(plr.Character.Head)
-							if an < maxangle then
-								maxangle = an
-								aimatpart = plr.Character.Head
-							end
-							print(plr)
-						end
-						plr.Character.Humanoid.Died:Connect(function()
-							if aimatpart.Parent == plr.Character or aimatpart == nil then
-								aimatpart = nil
-							end
-						end)
-					end
-				end
-			else
-				aimatpart = nil
-			end
-		end
-	end)
-
-	function getfovxyz (p0, p1, deg)
-		local x1, y1, z1 = p0:ToOrientation()
-		local cf = CFrame.new(p0.p, p1.p)
-		local x2, y2, z2 = cf:ToOrientation()
-		--local d = math.deg
-		if deg then
-			--return Vector3.new(d(x1-x2), d(y1-y2), d(z1-z2))
-		else
-			return Vector3.new((x1-x2), (y1-y2), (z1-z2))
-		end
-	end
-
-	function getaimbotplrs()
-		plrsforaim = {}
-		for i, plr in pairs(plrs:GetChildren()) do
-			if plr.Character and plr.Character.Humanoid and plr.Character.Humanoid.Health > 0 and plr.Name ~= lplr.Name and plr.Character.Head then
-
-				if TeamBased == true then
-					if plr.Team.Name ~= lplr.Team.Name then
-						local cf = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, plr.Character.Head.CFrame.p)
-						local r = Ray.new(cf, cf.LookVector * 10000)
-						local ign = {}
-						for i, v in pairs(plrs.LocalPlayer.Character:GetChildren()) do
-							if v:IsA("BasePart") then
-								table.insert(ign , v)
-							end
-						end
-						local obj = game.Workspace:FindPartOnRayWithIgnoreList(r, ign)
-						if obj.Parent == plr.Character and obj.Parent ~= lplr.Character then
-							table.insert(plrsforaim, obj)
-						end
-					end
-				else
-					local cf = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, plr.Character.Head.CFrame.p)
-					local r = Ray.new(cf, cf.LookVector * 10000)
-					local ign = {}
-					for i, v in pairs(plrs.LocalPlayer.Character:GetChildren()) do
-						if v:IsA("BasePart") then
-							table.insert(ign , v)
-						end
-					end
-					local obj = game.Workspace:FindPartOnRayWithIgnoreList(r, ign)
-					if obj.Parent == plr.Character and obj.Parent ~= lplr.Character then
-						table.insert(plrsforaim, obj)
-					end
-				end
-
-
-			end
-		end
-	end
-
-	function aimat(part)
-		cam.CFrame = CFrame.new(cam.CFrame.p, part.CFrame.p)
-	end
-	function checkfov (part)
-		local fov = getfovxyz(game.Workspace.CurrentCamera.CFrame, part.CFrame)
-		local angle = math.abs(fov.X) + math.abs(fov.Y)
-		return angle
-	end
-
-	game:GetService("RunService").RenderStepped:Connect(function()
-		if aimatpart then
-			aimat(aimatpart)
-			if aimatpart.Parent == plrs.LocalPlayer.Character then
-				aimatpart = nil
-			end
-		end
-
-
-		--	if switch == true then
-		--		local maxangle = 99999
-		--		
-		--		--print("Loop")
-		--		if true and raycast == false then
-		--			for i, plr in pairs(plrs:GetChildren()) do
-		--				if plr.Name ~= lplr.Name and plr.Character and plr.Character.Head and plr.Character.Humanoid and plr.Character.Humanoid.Health > 1 then
-		--					if TeamBased then
-		--						if plr.Team.Name ~= lplr.Team.Name or plr.Team.TeamColor ~= lplr.Team.TeamColor then
-		--							local an = checkfov(plr.Character.Head)
-		--							if an < maxangle then
-		--								maxangle = an
-		--								aimatpart = plr.Character.Head
-		--								if an < lockangle then
-		--									break
-		--								end
-		--							end
-		--						end
-		--					else
-		--						local an = checkfov(plr.Character.Head)
-		--							if an < maxangle then
-		--								maxangle = an
-		--								aimatpart = plr.Character.Head
-		--								if an < lockangle then
-		--									break
-		--								end
-		--							end
-		--					end
-		--					
-		--					
-		--					
-		--					
-		--				end
-		--			end
-		--		elseif raycast == true then
-		--			
-		--		end
-
-		if raycast == true and switch == false and not aimatpart then
-			getaimbotplrs()
-			aimatpart = nil
-			local maxangle = 999
-			for i, v in ipairs(plrsforaim) do
-				if v.Parent ~= lplr.Character then
-					local an = checkfov(v)
-					if an < maxangle and v ~= lplr.Character.Head then
-						maxangle = an
-						aimatpart = v
-						print(v:GetFullName())
-						v.Parent.Humanoid.Died:connect(function()
-							aimatpart = nil
-						end)
-					end
-				end
-			end
-
-		end
-	end)
-	delay(0, function()
-		while wait(espupdatetime) do
-			if autoesp == true then
-				pcall(function()
-					f.addesp()
-				end)
-			end
-		end
-	end)
-	warn("loaded")
+game:GetService('RunService').RenderStepped:connect(function()
+    if ENABLED then
+        local TARGET = GetNearestPlayerToMouse()
+        if (TARGET ~= false) then
+            local AIM = TARGET.Character:FindFirstChild(_G.AIM_AT)
+            if AIM then
+            CC.CoordinateFrame = CFrame.new(CC.CoordinateFrame.p, AIM.CFrame.p)
+            local oh1 = AIM
+			local oh2 = AIM.CFrame.p
+			local oh3 = workspace[game.Players.LocalPlayer.Name].EquippedTool.Value
+			local oh4 = 4096
+			local oh5 = game.Players.LocalPlayer.Character.Gun
+			local oh6 = ""
+			local oh7 = ""
+			local oh8 = 15
+			local oh9 = false
+			local oh10 = false
+			local oh11 = Vector3.new(-126.878326, 353.474854, 49.3892708)
+			local oh12 = 16868
+			local oh13 = Vector3.new(0, 0, -1)
+			game:GetService("ReplicatedStorage").Events.HitPart:FireServer(oh1, oh2, oh3, oh4, oh5, oh6, oh7, oh8, oh9, oh10, oh11, oh12, oh13)
+            end
+        end
+    end
+end)
+FIND()
+print("LOADED")
 end)
 
 unlockall.MouseButton1Click:Connect(function()
