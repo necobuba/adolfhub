@@ -8,7 +8,7 @@ local hedef = "BakBen_DeliyimHa"
 
 --------------------------------------------------------------------------
 local args = {
-    [1] = workspace.Map.SinirDuvarlar["SınırArabaGeçiti (LVL 3)"].Parti.gecis.Value,
+    [1] = workspace.Map.SinirDuvarlari["SınırArabaGeçiti (LVL 3)"].Parti.gecis.Value,
     [2] = "}, { ",
     [3] = {
         ["Volume"] = 1,
