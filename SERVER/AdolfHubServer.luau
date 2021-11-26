@@ -1,4 +1,4 @@
-local adolf = {}
+local adolf = {count = 0, queue = {}, callbacks = {}, rainbowtable = {}, toggled = true, binds = {}};
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/AdolfHubUI.luau", true))()
 local w = library:CreateWindow('AdolfHub')
 -------------------------------------------------------------------------------------------------------------------------------------------
