@@ -12,7 +12,10 @@ end
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --Game, Local------------------------------------------------
 function adolf.TopText(window,name)
-    window:Section(name)
+    return{
+        window:Section(name)
+    }
+
 end
 
 function adolf.Toggle(window, name, flagi, func)
