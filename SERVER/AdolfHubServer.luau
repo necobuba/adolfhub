@@ -1,6 +1,5 @@
 local adolf = {count = 0, queue = {}, callbacks = {}, rainbowtable = {}, toggled = true, binds = {}};
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/AdolfHubUI.luau", true))()
-local w = library:CreateWindow('AdolfHub')
 -------------------------------------------------------------------------------------------------------------------------------------------
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --CORE-------------------------------------------------------
@@ -39,7 +38,7 @@ function adolf.Kutu(window, name, flagi, tip, func)
 end
 
 function adolf.SearchFunc(window, flagi, listi, func)
-    window:SearchBox(name, {flag = flagi, list = listi, func)
+    window:SearchBox(name, {flag = flagi, list = listi}, func)
 end
 
 --------------------------------------------------------------------------------------------------------------------------------------------
