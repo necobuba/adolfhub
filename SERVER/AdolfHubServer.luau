@@ -4,8 +4,9 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/necob
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --CORE-------------------------------------------------------
 function adolf.makeui(name)
-    library:CreateWindow(name)
-    return()
+    return{
+        library:CreateWindow(name)
+    }
 end
 -------------------------------------------------------------
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
