@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet("https://pastebin.com/raw/eWKgbdix", true))()
+local library = loadstring(game:HttpGet("https://pastebinp.com/raw/eWKgbdix", true))()
 local w = library:CreateWindow('Example')
 w:Section('Top')
 local t = w:Toggle('Example Toggle', {flag = "toggle1"})
