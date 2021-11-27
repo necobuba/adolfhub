@@ -12,9 +12,7 @@ end
 --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --Game, Local------------------------------------------------
 function adolf.TopText(window,name)
-    return{
-        window:Section(name)
-    }
+    window:Section(name)
 
 end
 
