@@ -5,27 +5,28 @@ local TeleportM = library:CreateWindow('Teleport')
 local TeamM = library:CreateWindow('Teams')
 local GunsM = library:CreateWindow('Guns')
 ---------------Local-------------------------------
-local WalkSpeed = LocalM:Slider("WalkSpeed", {min = 15, max = 300, flag = 'WSped'}, function(v)
+local oldwalk = 16
+local WalkSpeed = LocalM:Slider("WalkSpeed", {min = 16, max = 300, flag = 'WSped'}, function(v)
    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
 end)
 local Walkbtn = LocalM:Button('Reset WalkSpeed', function()
-   WalkSpeed:Set(old)
+   WalkSpeed:Set(oldwalk)
 end)
 
-
+local oldjump = 50
 local JumpPower = LocalM:Slider("JumpPower", {min = 50, max = 300, flag = 'JPowr'}, function(v)
    game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
 end)
 local Jumpbtn = LocalM:Button('Reset JumpPower', function()
-   JumpPower:Set(old)
+   JumpPower:Set(oldjump)
 end)
 
-
+local oldfov = math.floor(workspace.CurrentCamera.FieldOfView)
 local fov = LocalM:Slider("FOV", {min = math.floor(workspace.CurrentCamera.FieldOfView), max = 120, flag = 'fov'}, function(v)
    workspace.CurrentCamera.FieldOfView = v;
 end)
 local fovbtn = LocalM:Button('Reset FOV', function()
-   fov:Set(old)
+   fov:Set(oldfov)
 end)
 
 
@@ -55,8 +56,8 @@ end)
 
 
 ---------------------------------
-LocalM:Section(aciklama.bir)
-LocalM:Section(aciklama.iki)
+TeamM:Section(aciklama.bir)
+TeamM:Section(aciklama.iki)
 --------------------------------Guns--------------------
 local giveak47 = GunsM:Button('AK-47', function()
    local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["AK-47"].ITEMPICKUP
@@ -105,8 +106,8 @@ local giveknife = GunsM:Button('Crude Knife', function()
 end)
 
 ---------------------------------
-LocalM:Section(aciklama.bir)
-LocalM:Section(aciklama.iki)
+GunsM:Section(aciklama.bir)
+GunsM:Section(aciklama.iki)
 -------------------------Teleport---------------------------------------------------------------------
 local tpcriminal = TeleportM:Button('Criminal Base', function()
    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-943.46,94.13,2063.63)
@@ -120,5 +121,5 @@ local tpyard = TeleportM:Button('Yard', function()
    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(779.87,98,2458.93)
 end)
 ---------------------------------
-LocalM:Section(aciklama.bir)
-LocalM:Section(aciklama.iki)
+TeleportM:Section(aciklama.bir)
+TeleportM:Section(aciklama.iki)
