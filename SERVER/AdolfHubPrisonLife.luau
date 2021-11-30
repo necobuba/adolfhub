@@ -130,36 +130,22 @@ TeleportM:Section(aciklama.bir)
 TeleportM:Section(aciklama.iki)
 
 ----------------Misc---------------------
-local Crim = Instance.new("Part")
-Crim.Name = "plr"
-Crim.Parent = workspace
-Crim.Anchored = true
-Crim.Archivable = true
-Crim.CFrame = CFrame.new(9e99, 9e99, 9e99)
-Bruh = game.Workspace["Criminals Spawn"].SpawnLocation
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local function RemoveSpaces(String)
-	return String:gsub("%s+", "") or String
-end
-local function FindPlayer(String)
-	String = RemoveSpaces(String)
-	for _, _Player in pairs(Players:GetPlayers()) do
-		if _Player.Name:lower():match('^'.. String:lower()) then
-			return _Player
-		end
-	end
-	return nil
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/Miscs.luau", true))()
 ------------------------------------------------------
 local SuperPunch = MiscM:Toggle('SuperPunch', {flag = "SuperPunch"})
 
 local CriminalAll = MiscM:Button('Criminal All', function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/CrimAll.luau", true))()
 end)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/SuperPunch.luau", true))()
-
+mouse.KeyDown:connect(function(key) 
+   if MiscM.flags.SuperPunch == true then
+      if cooldown == false then
+         if key:lower() == "f" then
+         punch() 
+         end
+      end
+   end
+end)
 
 
 ------------------------------------------------------
