@@ -4,7 +4,7 @@ local LocalM = library:CreateWindow('Local')
 local TeleportM = library:CreateWindow('Teleport')
 local TeamM = library:CreateWindow('Teams')
 local GunsM = library:CreateWindow('Guns')
-local MiscM = library:CreateWindow('Guns')
+local MiscM = library:CreateWindow('Misc')
 
 
 
