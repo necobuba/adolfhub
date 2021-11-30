@@ -151,10 +151,29 @@ local function FindPlayer(String)
 	end
 	return nil
 end
+------------------------------------------------------
+local SuperPunch = MiscM:Toggle('SuperPunch', {flag = "SuperPunch"}, function()
+   print("SuperPunch is "..MiscM.flags.SuperPunch)
+end)
 
 local CriminalAll = MiscM:Button('Criminal All', function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/CrimAll.luau", true))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/CrimAll.luau", true))()
 end)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/SuperPunch.luau", true))()
+mouse.KeyDown:connect(function(key) 
+   if MiscM.flags.SuperPunch = ture then
+      if cooldown == false then
+         if key:lower() == "f" then
+         punch() 
+         end
+      end
+   end
+end)
+
+
+
+------------------------------------------------------
 MiscM:Section(aciklama.bir)
 MiscM:Section(aciklama.iki)
 game:GetService('RunService').Stepped:connect(function()
