@@ -162,7 +162,7 @@ end)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/SuperPunch.luau", true))()
 mouse.KeyDown:connect(function(key) 
-   if MiscM.flags.SuperPunch = ture then
+   if MiscM.flags.SuperPunch == ture then
       if cooldown == false then
          if key:lower() == "f" then
          punch() 
