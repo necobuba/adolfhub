@@ -4,6 +4,11 @@ local LocalM = library:CreateWindow('Local')
 local TeleportM = library:CreateWindow('Teleport')
 local TeamM = library:CreateWindow('Teams')
 local GunsM = library:CreateWindow('Guns')
+local MiscM = library:CreateWindow('Guns')
+
+
+
+
 ---------------Local-------------------------------
 local oldwalk = 16
 local WalkSpeed = LocalM:Slider("WalkSpeed", {min = 16, max = 300, flag = 'WSped'}, function(v)
@@ -123,3 +128,62 @@ end)
 ---------------------------------
 TeleportM:Section(aciklama.bir)
 TeleportM:Section(aciklama.iki)
+
+----------------Misc---------------------
+local Crim = Instance.new("Part")
+Crim.Name = "plr"
+Crim.Parent = workspace
+Crim.Anchored = true
+Crim.Archivable = true
+Crim.CFrame = CFrame.new(9e99, 9e99, 9e99)
+Bruh = game.Workspace["Criminals Spawn"].SpawnLocation
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local function RemoveSpaces(String)
+	return String:gsub("%s+", "") or String
+end
+local function FindPlayer(String)
+	String = RemoveSpaces(String)
+	for _, _Player in pairs(Players:GetPlayers()) do
+		if _Player.Name:lower():match('^'.. String:lower()) then
+			return _Player
+		end
+	end
+	return nil
+end
+
+local CriminalAll = MiscM:Button('Criminal All', function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/CrimAll.luau", true))()
+end)
+MiscM:Section(aciklama.bir)
+MiscM:Section(aciklama.iki)
+game:GetService('RunService').Stepped:connect(function()
+   if _G.Crimall == true then wait()
+   Crim.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+       Crim.Transparency = 1
+           Crim.Anchored = true
+        Crim.CanCollide = false
+     lol = true				
+   Bruh = game.Workspace["Criminals Spawn"].SpawnLocation
+     Bruh.CanCollide = false
+         Bruh.Size = Vector3.new(51.05, 24.12, 54.76)
+       Bruh.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+     Bruh.Transparency = 1
+   wait(0.1)
+   end
+   end)
+   game:GetService('RunService').Stepped:connect(function()
+   if _G.Crimalll == true then wait()
+   Crim.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+       Crim.Transparency = 1
+           Crim.Anchored = true
+        Crim.CanCollide = false
+     lol = true				
+   Bruh = game.Workspace["Criminals Spawn"].SpawnLocation
+     Bruh.CanCollide = false
+         Bruh.Size = Vector3.new(51.05, 24.12, 54.76)
+       Bruh.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+     Bruh.Transparency = 1
+   wait(0.1)
+   end
+end)
