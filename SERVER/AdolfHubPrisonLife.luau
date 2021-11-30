@@ -161,15 +161,6 @@ local CriminalAll = MiscM:Button('Criminal All', function()
 end)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/SuperPunch.luau", true))()
-mouse.KeyDown:connect(function(key) 
-   if MiscM.flags.SuperPunch == ture then
-      if cooldown == false then
-         if key:lower() == "f" then
-         punch() 
-         end
-      end
-   end
-end)
 
 
 

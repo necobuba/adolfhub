@@ -25,3 +25,13 @@ function punch()
     cooldown = false
     part:Destroy()
 end
+
+mouse.KeyDown:connect(function(key) 
+    if MiscM.flags.SuperPunch == ture then
+       if cooldown == false then
+          if key:lower() == "f" then
+          punch() 
+          end
+       end
+    end
+ end)
