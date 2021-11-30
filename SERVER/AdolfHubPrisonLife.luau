@@ -152,9 +152,7 @@ local function FindPlayer(String)
 	return nil
 end
 ------------------------------------------------------
-local SuperPunch = MiscM:Toggle('SuperPunch', {flag = "SuperPunch"}, function()
-   print("SuperPunch is "..MiscM.flags.SuperPunch)
-end)
+local SuperPunch = MiscM:Toggle('SuperPunch', {flag = "SuperPunch"})
 
 local CriminalAll = MiscM:Button('Criminal All', function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/CrimAll.luau", true))()
