@@ -142,11 +142,11 @@ local ArrestCrims = MiscM:Button('Arrest Crims', function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/ArrestCrims.luau", true))()
 end)
 
-local killall = MiscM:Button('Kill All', function()
-   for i,v in pairs(game.Players:GetPlayers()) do 
-   killplayer(v, "AK-47")
-   end
-end)
+--local killall = MiscM:Button('Kill All', function()
+--  for i,v in pairs(game.Players:GetPlayers()) do 
+--   killplayer(v.name, "AK-47")
+--   end
+--end)
 
 
 

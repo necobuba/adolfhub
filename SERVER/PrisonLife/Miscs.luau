@@ -56,9 +56,7 @@ end
 
 
 
-function killplayer(victimp, gunp)
-   local victim = victimp
-   local gunuuu = gunp
+function killplayer(victim, gunuuu)
    local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[gunuuu].ITEMPICKUP
    local Event = game:GetService("Workspace").Remote.ItemHandler
    Event:InvokeServer(A_1)
