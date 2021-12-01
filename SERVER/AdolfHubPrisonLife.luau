@@ -137,15 +137,17 @@ local SuperPunch = MiscM:Toggle('SuperPunch', {flag = "SuperPunch"})
 local CriminalAll = MiscM:Button('Criminal All', function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/CrimAll.luau", true))()
 end)
-mouse.KeyDown:connect(function(key) 
-   if MiscM.flags.SuperPunch == true then
-      if cooldown == false then
-         if key:lower() == "f" then
-         punch() 
-         end
-      end
+
+local ArrestCrims = MiscM:Button('Arrest Crims', function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/necobuba/adolfhub/main/SERVER/PrisonLife/ArrestCrims.luau", true))()
+end)
+
+local killall = MiscM:Button('Kill All', function()
+   for i,v in pairs(game.Players:GetPlayers()) do 
+   killplayer(v, "AK-47")
    end
 end)
+
 
 
 ------------------------------------------------------

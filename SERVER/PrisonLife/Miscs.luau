@@ -53,3 +53,121 @@ function punch()
    cooldown = false
    part:Destroy()
 end
+
+
+
+function killplayer(victimp, gunp)
+   local victim = victimp
+   local gunuuu = gunp
+   local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[gunuuu].ITEMPICKUP
+   local Event = game:GetService("Workspace").Remote.ItemHandler
+   Event:InvokeServer(A_1)
+   
+   
+   local args = {
+       [1] = {
+           [1] = {
+               ["RayObject"] = Ray.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Distance"] = 9999999999999999999999999999999999999999999999999999999,
+               ["Cframe"] = CFrame.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Hit"] = game:GetService("Players")[victim].Character["Head"]
+           }
+       },
+       [2] = game:GetService("Players").LocalPlayer.Backpack[gunuuu]
+   }
+   
+   game:GetService("ReplicatedStorage").ShootEvent:FireServer(unpack(args))
+   local args = {
+       [1] = {
+           [1] = {
+               ["RayObject"] = Ray.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Distance"] = 9999999999999999999999999999999999999999999999999999999,
+               ["Cframe"] = CFrame.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Hit"] = game:GetService("Players")[victim].Character["Head"]
+           }
+       },
+       [2] = game:GetService("Players").LocalPlayer.Backpack[gunuuu]
+   }
+   
+   game:GetService("ReplicatedStorage").ShootEvent:FireServer(unpack(args))
+   local args = {
+       [1] = {
+           [1] = {
+               ["RayObject"] = Ray.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Distance"] = 9999999999999999999999999999999999999999999999999999999,
+               ["Cframe"] = CFrame.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Hit"] = game:GetService("Players")[victim].Character["Head"]
+           }
+       },
+       [2] = game:GetService("Players").LocalPlayer.Backpack[gunuuu]
+   }
+   
+   game:GetService("ReplicatedStorage").ShootEvent:FireServer(unpack(args))
+   local args = {
+       [1] = {
+           [1] = {
+               ["RayObject"] = Ray.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Distance"] = 9999999999999999999999999999999999999999999999999999999,
+               ["Cframe"] = CFrame.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Hit"] = game:GetService("Players")[victim].Character["Head"]
+           }
+       },
+       [2] = game:GetService("Players").LocalPlayer.Backpack[gunuuu]
+   }
+   
+   game:GetService("ReplicatedStorage").ShootEvent:FireServer(unpack(args))
+   local args = {
+       [1] = {
+           [1] = {
+               ["RayObject"] = Ray.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Distance"] = 9999999999999999999999999999999999999999999999999999999,
+               ["Cframe"] = CFrame.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Hit"] = game:GetService("Players")[victim].Character["Head"]
+           }
+       },
+       [2] = game:GetService("Players").LocalPlayer.Backpack[gunuuu]
+   }
+   
+   game:GetService("ReplicatedStorage").ShootEvent:FireServer(unpack(args))
+   local args = {
+       [1] = {
+           [1] = {
+               ["RayObject"] = Ray.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Distance"] = 9999999999999999999999999999999999999999999999999999999,
+               ["Cframe"] = CFrame.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Hit"] = game:GetService("Players")[victim].Character["Head"]
+           }
+       },
+       [2] = game:GetService("Players").LocalPlayer.Backpack[gunuuu]
+   }
+   
+   game:GetService("ReplicatedStorage").ShootEvent:FireServer(unpack(args))
+   local args = {
+       [1] = {
+           [1] = {
+               ["RayObject"] = Ray.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Distance"] = 9999999999999999999999999999999999999999999999999999999,
+               ["Cframe"] = CFrame.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Hit"] = game:GetService("Players")[victim].Character["Head"]
+           }
+       },
+       [2] = game:GetService("Players").LocalPlayer.Backpack[gunuuu]
+   }
+   
+   game:GetService("ReplicatedStorage").ShootEvent:FireServer(unpack(args))
+   local args = {
+       [1] = {
+           [1] = {
+               ["RayObject"] = Ray.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Distance"] = 9999999999999999999999999999999999999999999999999999999,
+               ["Cframe"] = CFrame.new(Vector3.new(0, 0, 0), Vector3.new(0, 0, 0)),
+               ["Hit"] = game:GetService("Players")[victim].Character["Head"]
+           }
+       },
+       [2] = game:GetService("Players").LocalPlayer.Backpack[gunuuu]
+   }
+   
+   game:GetService("ReplicatedStorage").ShootEvent:FireServer(unpack(args))
+   
+   
+end
